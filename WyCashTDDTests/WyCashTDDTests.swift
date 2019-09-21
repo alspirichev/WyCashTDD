@@ -12,27 +12,27 @@ import XCTest
 class WyCashTDDTests: XCTestCase {
 
     func test_miltiplication() {
-        let five = Dollar(5)
+        let five = Money.makeDollar(5)
         
-        XCTAssertEqual(Dollar(10), five.times(2))
-        XCTAssertEqual(Dollar(15), five.times(3))
+        XCTAssertEqual(Money.makeDollar(10), five.times(2))
+        XCTAssertEqual(Money.makeDollar(15), five.times(3))
     }
     
     func test_frankMultiplication() {
         let five = Franc(5)
         
-        XCTAssertEqual(Franc(10), five.times(2))
-        XCTAssertEqual(Franc(15), five.times(3))
+        XCTAssertEqual(Money.makeFranc(10), five.times(2))
+        XCTAssertEqual(Money.makeFranc(15), five.times(3))
     }
     
     func test_equality() {
-        XCTAssertEqual(Dollar(5), Dollar(5))
-        XCTAssertNotEqual(Dollar(5), Dollar(6))
+        XCTAssertEqual(Money.makeDollar(5), Money.makeDollar(5))
+        XCTAssertNotEqual(Money.makeDollar(5), Money.makeDollar(6))
         
-        XCTAssertEqual(Franc(5), Franc(5))
-        XCTAssertNotEqual(Franc(5), Franc(6))
+        XCTAssertEqual(Money.makeFranc(5), Money.makeFranc(5))
+        XCTAssertNotEqual(Money.makeFranc(5), Money.makeFranc(6))
         
-        XCTAssertNotEqual(Dollar(5), Franc(5))
+        XCTAssertNotEqual(Money.makeDollar(5), Money.makeFranc(5))
     }
 
 }

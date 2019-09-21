@@ -10,12 +10,23 @@ import Foundation
 
 class Money {
     var amount = 0
+    
+    func times(_ multiplier: Int) -> Money {
+        preconditionFailure("Must be overridden in subclass")
+    }
+    
+    static func makeDollar(_ amount: Int) -> Money {
+        return Dollar(amount)
+    }
+    
+    static func makeFranc(_ amount: Int) -> Money {
+        return Franc(amount)
+    }
 }
-
 
 // MARK: - Equatable
 extension Money: Equatable {
     static func == (lhs: Money, rhs: Money) -> Bool {
-        return lhs.amount == rhs.amount && self == type(of: rhs)
+        return lhs.amount == rhs.amount && type(of: lhs) == type(of: rhs)
     }
 }
