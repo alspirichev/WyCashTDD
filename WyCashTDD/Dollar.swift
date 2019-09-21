@@ -10,9 +10,4 @@ import Foundation
 
 class Dollar: Money {
     
-    // MARK: - Override
-    
-    override func times(_ multiplier: Int) -> Money {
-        return Money.makeDollar(self.amount * multiplier)
-    }
 }

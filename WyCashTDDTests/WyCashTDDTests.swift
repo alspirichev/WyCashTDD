@@ -39,5 +39,9 @@ class WyCashTDDTests: XCTestCase {
         XCTAssertEqual("USD", Money.makeDollar(1).getCurrency())
         XCTAssertEqual("CHF", Money.makeFranc(1).getCurrency())
     }
+    
+    func test_differentClassEquality() {
+        XCTAssertEqual(Money(10, currency: "CHF"), Franc(10, currency: "CHF"))
+    }
 
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 class Money {
-    private var currency = ""
+    var currency = ""
     var amount = 0
     
     init(_ amount: Int, currency: String) {
@@ -18,7 +18,7 @@ class Money {
     }
     
     func times(_ multiplier: Int) -> Money {
-        preconditionFailure("Must be overridden in subclass")
+        return Money(self.amount * multiplier, currency: self.currency)
     }
     
     func getCurrency() -> String {
@@ -39,6 +39,7 @@ class Money {
 // MARK: - Equatable
 extension Money: Equatable {
     static func == (lhs: Money, rhs: Money) -> Bool {
-        return lhs.amount == rhs.amount && type(of: lhs) == type(of: rhs)
+        return lhs.amount == rhs.amount
+            && lhs.getCurrency() == rhs.getCurrency()
     }
 }
