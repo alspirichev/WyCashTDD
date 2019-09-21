@@ -21,5 +21,10 @@ class WyCashTDDTests: XCTestCase {
         product = five.times(3)
         XCTAssertEqual(15, product!.amount)
     }
+    
+    func test_equality() {
+        XCTAssertTrue(Dollar(5).equals(Dollar(5)))
+        XCTAssertFalse(Dollar(5).equals(Dollar(6)))
+    }
 
 }
