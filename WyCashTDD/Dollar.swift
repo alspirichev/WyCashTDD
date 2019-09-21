@@ -8,10 +8,10 @@
 
 import Foundation
 
-class Dollar {
-    private var amount = 0
+class Dollar: Money {
     
     init(_ amount: Int) {
+        super.init()
         self.amount = amount
     }
     
@@ -21,11 +21,5 @@ class Dollar {
     
     func equals(_ dollar: Dollar) -> Bool {
         return self.amount == dollar.amount
-    }
-}
-
-extension Dollar: Equatable {
-    static func == (lhs: Dollar, rhs: Dollar) -> Bool {
-        return lhs.amount == rhs.amount
     }
 }
