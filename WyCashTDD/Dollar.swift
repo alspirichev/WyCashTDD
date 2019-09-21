@@ -9,17 +9,23 @@
 import Foundation
 
 class Dollar {
-    var amount = 0
+    private var amount = 0
     
     init(_ amount: Int) {
         self.amount = amount
     }
     
-    func times(_ multiplier: Int) -> Dollar? {
+    func times(_ multiplier: Int) -> Dollar {
         return Dollar(self.amount * multiplier)
     }
     
     func equals(_ dollar: Dollar) -> Bool {
         return self.amount == dollar.amount
+    }
+}
+
+extension Dollar: Equatable {
+    static func == (lhs: Dollar, rhs: Dollar) -> Bool {
+        return lhs.amount == rhs.amount
     }
 }
