@@ -18,8 +18,4 @@ class Franc: Money {
     func times(_ multiplier: Int) -> Franc {
         return Franc(self.amount * multiplier)
     }
-    
-    func equals(_ franc: Franc) -> Bool {
-        return self.amount == franc.amount
-    }
 }
