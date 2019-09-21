@@ -19,7 +19,7 @@ class WyCashTDDTests: XCTestCase {
     }
     
     func test_frankMultiplication() {
-        let five = Franc(5)
+        let five = Money.makeFranc(5)
         
         XCTAssertEqual(Money.makeFranc(10), five.times(2))
         XCTAssertEqual(Money.makeFranc(15), five.times(3))
@@ -33,6 +33,11 @@ class WyCashTDDTests: XCTestCase {
         XCTAssertNotEqual(Money.makeFranc(5), Money.makeFranc(6))
         
         XCTAssertNotEqual(Money.makeDollar(5), Money.makeFranc(5))
+    }
+    
+    func test_currency() {
+        XCTAssertEqual("USD", Money.makeDollar(1).getCurrency())
+        XCTAssertEqual("CHF", Money.makeFranc(1).getCurrency())
     }
 
 }

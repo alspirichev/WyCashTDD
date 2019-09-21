@@ -9,18 +9,30 @@
 import Foundation
 
 class Money {
+    private var currency = ""
     var amount = 0
+    
+    init(_ amount: Int, currency: String) {
+        self.amount = amount
+        self.currency = currency
+    }
     
     func times(_ multiplier: Int) -> Money {
         preconditionFailure("Must be overridden in subclass")
     }
     
+    func getCurrency() -> String {
+        return self.currency
+    }
+    
+    // MARK: - Factory methods
+    
     static func makeDollar(_ amount: Int) -> Money {
-        return Dollar(amount)
+        return Dollar(amount, currency: "USD")
     }
     
     static func makeFranc(_ amount: Int) -> Money {
-        return Franc(amount)
+        return Franc(amount, currency: "CHF")
     }
 }
 
