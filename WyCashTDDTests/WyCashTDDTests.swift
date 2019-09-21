@@ -14,9 +14,12 @@ class WyCashTDDTests: XCTestCase {
     func test_miltiplication() {
         let five = Dollar(5)
         
-        five.times(2)
+        var product = five.times(2)
         
-        XCTAssertEqual(10, five.amount)
+        XCTAssertEqual(10, product!.amount)
+        
+        product = five.times(3)
+        XCTAssertEqual(15, product!.amount)
     }
 
 }
