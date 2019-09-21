@@ -14,8 +14,6 @@
 		CD8883ED23366FDF00FFABE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD8883EB23366FDF00FFABE8 /* LaunchScreen.storyboard */; };
 		CD8883F823366FDF00FFABE8 /* WyCashTDDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8883F723366FDF00FFABE8 /* WyCashTDDTests.swift */; };
 		CD88840323366FDF00FFABE8 /* WyCashTDDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD88840223366FDF00FFABE8 /* WyCashTDDUITests.swift */; };
-		CD888412233672F200FFABE8 /* Dollar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD888411233672F200FFABE8 /* Dollar.swift */; };
-		CD8884142336952C00FFABE8 /* Franc.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8884132336952C00FFABE8 /* Franc.swift */; };
 		CD8884162336966A00FFABE8 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8884152336966A00FFABE8 /* Money.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,8 +48,6 @@
 		CD8883FE23366FDF00FFABE8 /* WyCashTDDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WyCashTDDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD88840223366FDF00FFABE8 /* WyCashTDDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WyCashTDDUITests.swift; sourceTree = "<group>"; };
 		CD88840423366FDF00FFABE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CD888411233672F200FFABE8 /* Dollar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dollar.swift; sourceTree = "<group>"; };
-		CD8884132336952C00FFABE8 /* Franc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Franc.swift; sourceTree = "<group>"; };
 		CD8884152336966A00FFABE8 /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,8 +102,6 @@
 				CD8883E023366FDF00FFABE8 /* AppDelegate.swift */,
 				CD8883E423366FDF00FFABE8 /* ViewController.swift */,
 				CD8884152336966A00FFABE8 /* Money.swift */,
-				CD888411233672F200FFABE8 /* Dollar.swift */,
-				CD8884132336952C00FFABE8 /* Franc.swift */,
 				CD8883E623366FDF00FFABE8 /* Main.storyboard */,
 				CD88841023366FF700FFABE8 /* SupportedFilse */,
 			);
@@ -273,10 +267,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD8884142336952C00FFABE8 /* Franc.swift in Sources */,
 				CD8884162336966A00FFABE8 /* Money.swift in Sources */,
 				CD8883E523366FDF00FFABE8 /* ViewController.swift in Sources */,
-				CD888412233672F200FFABE8 /* Dollar.swift in Sources */,
 				CD8883E123366FDF00FFABE8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

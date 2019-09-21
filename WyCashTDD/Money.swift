@@ -28,11 +28,11 @@ class Money {
     // MARK: - Factory methods
     
     static func makeDollar(_ amount: Int) -> Money {
-        return Dollar(amount, currency: "USD")
+        return Money(amount, currency: "USD")
     }
     
     static func makeFranc(_ amount: Int) -> Money {
-        return Franc(amount, currency: "CHF")
+        return Money(amount, currency: "CHF")
     }
 }
 
