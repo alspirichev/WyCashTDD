@@ -28,5 +28,13 @@ class WyCashTDDTests: XCTestCase {
         XCTAssertEqual("USD", Money.makeDollar(1).getCurrency())
         XCTAssertEqual("CHF", Money.makeFranc(1).getCurrency())
     }
+    
+    func test_fiveDollarPlusFiveDollar_equalTenDollar() {
+        let five = Money.makeDollar(5)
+        let sum = five.plus(five)
+        let bank = Bank()
+        let reduced = bank.reduce(source: sum, to: "USD")
+        XCTAssertEqual(Money.makeDollar(10), reduced)
+    }
 
 }

@@ -8,9 +8,9 @@
 
 import Foundation
 
-class Money {
-    var currency = ""
-    var amount = 0
+class Money: ExpressionProtocol {
+    private var currency = ""
+    private var amount = 0
     
     init(_ amount: Int, currency: String) {
         self.amount = amount
@@ -19,6 +19,10 @@ class Money {
     
     func times(_ multiplier: Int) -> Money {
         return Money(self.amount * multiplier, currency: self.currency)
+    }
+    
+    func plus(_ money: Money) -> ExpressionProtocol {
+        return Money(self.amount + money.amount, currency: self.currency)
     }
     
     func getCurrency() -> String {
