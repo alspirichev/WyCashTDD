@@ -10,7 +10,7 @@ import Foundation
 
 class Money: ExpressionProtocol {
     private var currency = ""
-    private var amount = 0
+    var amount = 0
     
     init(_ amount: Int, currency: String) {
         self.amount = amount
@@ -22,7 +22,7 @@ class Money: ExpressionProtocol {
     }
     
     func plus(_ money: Money) -> ExpressionProtocol {
-        return Money(self.amount + money.amount, currency: self.currency)
+        return Sum(addend: self, augend: money)
     }
     
     func getCurrency() -> String {

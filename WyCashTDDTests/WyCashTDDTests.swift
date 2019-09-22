@@ -36,5 +36,25 @@ class WyCashTDDTests: XCTestCase {
         let reduced = bank.reduce(source: sum, to: "USD")
         XCTAssertEqual(Money.makeDollar(10), reduced)
     }
+    
+    func test_plusOperation_returnSum() {
+        let five = Money.makeDollar(5)
+        let result = five.plus(five)
+        
+        let sum = result as! Sum
+        
+        XCTAssertEqual(five, sum.augend)
+        XCTAssertEqual(five, sum.addend)
+    }
+    
+    func test_reduceSum() {
+        let sum = Sum(addend: Money.makeDollar(3),
+                      augend: Money.makeDollar(4))
+        
+        let bank = Bank()
+        let result = bank.reduce(source: sum, to: "USD")
+        
+        XCTAssertEqual(Money.makeDollar(7), result)
+    }
 
 }
