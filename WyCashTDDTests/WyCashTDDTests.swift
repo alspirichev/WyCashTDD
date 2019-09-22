@@ -91,5 +91,31 @@ class WyCashTDDTests: XCTestCase {
         
         XCTAssertEqual(Money.makeDollar(10), result)
     }
+    
+    func test_sumPlusMoney() {
+        let fiveBucks: ExpressionProtocol = Money.makeDollar(5)
+        let tenFrancs: ExpressionProtocol = Money.makeFranc(10)
+        
+        let bank = Bank()
+        bank.addRate(from: "CHF", to: "USD", rate: 2)
+        
+        let sum = Sum(addend: fiveBucks, augend: tenFrancs).plus(fiveBucks)
+        let result = bank.reduce(source: sum, to: "USD")
+        
+        XCTAssertEqual(Money.makeDollar(15), result)
+    }
+    
+    func test_sumTimes() {
+        let fiveBucks: ExpressionProtocol = Money.makeDollar(5)
+        let tenFrancs: ExpressionProtocol = Money.makeFranc(10)
+        
+        let bank = Bank()
+        bank.addRate(from: "CHF", to: "USD", rate: 2)
+        
+        let sum = Sum(addend: fiveBucks, augend: tenFrancs).times(2)
+        
+        let result = bank.reduce(source: sum, to: "USD")
+        XCTAssertEqual(Money.makeDollar(20), result)
+    }
 
 }

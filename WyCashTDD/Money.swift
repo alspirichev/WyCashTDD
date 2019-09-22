@@ -27,7 +27,7 @@ class Money: ExpressionProtocol {
     }
     
     func plus(_ money: ExpressionProtocol) -> ExpressionProtocol {
-        return Sum(addend: money, augend: self) // return Sum(addend: self, augend: money)
+        return Sum(addend: money, augend: self)
     }
     
     func getCurrency() -> String {

@@ -24,6 +24,11 @@ class Sum: ExpressionProtocol {
     }
     
     func plus(_ money: ExpressionProtocol) -> ExpressionProtocol {
-        preconditionFailure("Need to be implemented in future")
+        return Sum(addend: money, augend: self)
+    }
+    
+    func times(_ multiplier: Int) -> ExpressionProtocol {
+        return Sum(addend: self.augend.times(multiplier),
+                   augend: self.addend.times(multiplier))
     }
 }
