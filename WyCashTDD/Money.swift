@@ -21,6 +21,10 @@ class Money: ExpressionProtocol {
         return Money(self.amount * multiplier, currency: self.currency)
     }
     
+    func reduce(_ to: String) -> Money {
+        return self
+    }
+    
     func plus(_ money: Money) -> ExpressionProtocol {
         return Sum(addend: self, augend: money)
     }

@@ -11,7 +11,6 @@ import Foundation
 class Bank {
     
     func reduce(source: ExpressionProtocol, to: String) -> Money {
-        let sum = source as! Sum
-        return sum.reduce(to)
+        return source.reduce(to)
     }
 }

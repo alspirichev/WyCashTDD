@@ -56,5 +56,11 @@ class WyCashTDDTests: XCTestCase {
         
         XCTAssertEqual(Money.makeDollar(7), result)
     }
+    
+    func test_reduceMoney() {
+        let bank = Bank()
+        let result = bank.reduce(source: Money.makeDollar(1), to: "USD")
+        XCTAssertEqual(Money.makeDollar(1), result)
+    }
 
 }
