@@ -11,12 +11,14 @@ import XCTest
 
 class WyCashTDDTests: XCTestCase {
 
+    /*
     func test_miltiplication() {
         let five = Money.makeDollar(5)
-        
+
         XCTAssertEqual(Money.makeDollar(10), five.times(2))
         XCTAssertEqual(Money.makeDollar(15), five.times(3))
     }
+    */
     
     func test_equality() {
         XCTAssertEqual(Money.makeDollar(5), Money.makeDollar(5))
@@ -37,6 +39,7 @@ class WyCashTDDTests: XCTestCase {
         XCTAssertEqual(Money.makeDollar(10), reduced)
     }
     
+    /*
     func test_plusOperation_returnSum() {
         let five = Money.makeDollar(5)
         let result = five.plus(five)
@@ -46,6 +49,7 @@ class WyCashTDDTests: XCTestCase {
         XCTAssertEqual(five, sum.augend)
         XCTAssertEqual(five, sum.addend)
     }
+    */
     
     func test_reduceSum() {
         let sum = Sum(addend: Money.makeDollar(3),
@@ -74,6 +78,18 @@ class WyCashTDDTests: XCTestCase {
     
     func test_identityRate() {
         XCTAssertEqual(1, Bank().rate(from: "USD", to: "USD"))
+    }
+    
+    func test_mixedAddition() {
+        let fiveBucks: ExpressionProtocol = Money.makeDollar(5)
+        let tenFrancs: ExpressionProtocol = Money.makeFranc(10)
+        
+        let bank = Bank()
+        bank.addRate(from: "CHF", to: "USD", rate: 2)
+        
+        let result = bank.reduce(source: fiveBucks.plus(tenFrancs), to: "USD")
+        
+        XCTAssertEqual(Money.makeDollar(10), result)
     }
 
 }

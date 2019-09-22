@@ -9,16 +9,21 @@
 import Foundation
 
 class Sum: ExpressionProtocol {
-    var addend: Money
-    var augend: Money
     
-    init(addend: Money, augend: Money) {
+    var addend: ExpressionProtocol
+    var augend: ExpressionProtocol
+    
+    init(addend: ExpressionProtocol, augend: ExpressionProtocol) {
         self.addend = addend
         self.augend = augend
     }
     
     func reduce(bank: Bank, to: String) -> Money {
-        let amount = augend.amount + addend.amount
+        let amount = augend.reduce(bank: bank, to: to).amount + addend.reduce(bank: bank, to: to).amount
         return Money(amount, currency: to)
+    }
+    
+    func plus(_ money: ExpressionProtocol) -> ExpressionProtocol {
+        preconditionFailure("Need to be implemented in future")
     }
 }

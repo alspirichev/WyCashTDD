@@ -17,7 +17,7 @@ class Money: ExpressionProtocol {
         self.currency = currency
     }
     
-    func times(_ multiplier: Int) -> Money {
+    func times(_ multiplier: Int) -> ExpressionProtocol {
         return Money(self.amount * multiplier, currency: self.currency)
     }
     
@@ -26,8 +26,8 @@ class Money: ExpressionProtocol {
         return Money(self.amount / rate, currency: to)
     }
     
-    func plus(_ money: Money) -> ExpressionProtocol {
-        return Sum(addend: self, augend: money)
+    func plus(_ money: ExpressionProtocol) -> ExpressionProtocol {
+        return Sum(addend: money, augend: self) // return Sum(addend: self, augend: money)
     }
     
     func getCurrency() -> String {
