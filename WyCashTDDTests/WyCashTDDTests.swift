@@ -62,5 +62,18 @@ class WyCashTDDTests: XCTestCase {
         let result = bank.reduce(source: Money.makeDollar(1), to: "USD")
         XCTAssertEqual(Money.makeDollar(1), result)
     }
+    
+    func test_reduceMoneyDifferentCurrency() {
+        let bank = Bank()
+        bank.addRate(from: "CHF", to: "USD", rate: 2)
+
+        let result = bank.reduce(source: Money.makeFranc(2), to: "USD")
+
+        XCTAssertEqual(Money.makeDollar(1), result)
+    }
+    
+    func test_identityRate() {
+        XCTAssertEqual(1, Bank().rate(from: "USD", to: "USD"))
+    }
 
 }

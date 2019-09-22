@@ -21,8 +21,9 @@ class Money: ExpressionProtocol {
         return Money(self.amount * multiplier, currency: self.currency)
     }
     
-    func reduce(_ to: String) -> Money {
-        return self
+    func reduce(bank: Bank, to: String) -> Money {
+        let rate = bank.rate(from: self.currency, to: to)
+        return Money(self.amount / rate, currency: to)
     }
     
     func plus(_ money: Money) -> ExpressionProtocol {

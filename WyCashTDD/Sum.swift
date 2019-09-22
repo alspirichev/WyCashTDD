@@ -17,7 +17,7 @@ class Sum: ExpressionProtocol {
         self.augend = augend
     }
     
-    func reduce(_ to: String) -> Money {
+    func reduce(bank: Bank, to: String) -> Money {
         let amount = augend.amount + addend.amount
         return Money(amount, currency: to)
     }
